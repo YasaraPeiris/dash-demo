@@ -6,6 +6,8 @@ name: Python application
 on:
   push:
     branches: [ develop ]
+    paths: 
+        - "server-api/**"
 
 jobs:
   build:
@@ -34,7 +36,6 @@ jobs:
       uses: mr-smithers-excellent/docker-build-push@v5
       with:
         image: yasarapeiris/fastimage
-        dockerfile: server-api/Dockerfile
         registry: docker.io
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
